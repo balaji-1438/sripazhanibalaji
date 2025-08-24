@@ -1,0 +1,13 @@
+module delete_value();
+  initial begin
+    int queue[$] = '{201, 202, 203, 202, 204};
+    int cancel_id = 202;     
+    int updated_queue[$];
+    int i;
+    foreach (queue[i]) begin
+      if (queue[i] != cancel_id)
+        updated_queue.push_back(queue[i]);
+    end
+      $display("Updated Queue = %p", updated_queue);
+  end
+endmodule
